@@ -1,0 +1,6 @@
+build/
+dist/
+venv/
+3.4.3
+main.spec
+retinanet_resnet50_fpn_coco-eeacb38b.pth
