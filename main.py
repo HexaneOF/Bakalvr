@@ -40,7 +40,7 @@ def process_image():
         image, detections = detector.detectObjectsFromImage(
           custom_objects=custom_objects,
           input_image=selected_image,
-          minimum_percentage_probability=1,
+          minimum_percentage_probability=30,
           display_percentage_probability=False,
           output_type='array',
         )
@@ -79,6 +79,7 @@ def process_video():
             log_progress=True,
             display_percentage_probability=False
         )
+        print("Відео оброблено")
 
 
 root = tk.Tk()
