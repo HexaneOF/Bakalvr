@@ -59,7 +59,7 @@ def download_image():
         )
         if file_path:
             processed_image.save(file_path)
-            print(f"Изображение успешно сохранено как {file_path}")
+            print(f"Зображення успішно збережено як {file_path}")
 
 
 def open_video_dialog():
@@ -85,29 +85,29 @@ root = tk.Tk()
 root.minsize(200, 200)
 root.title("Робота")
 
-# Создание кнопки для загрузки фото
+#кнопка для загрузки фото
 button_load = tk.Button(root, text="Загрузити фото", command=open_file_dialog)
 button_load.pack(pady=5)
 
-# Создание кнопки для загрузки фото
+#кнопка для загрузки відео
 button_load = tk.Button(root, text="Загрузити відео", command=open_video_dialog)
 button_load.pack(pady=5)
 
-# Создание кнопки для обработки фото
+#кнопка для обработки фото
 button_process = tk.Button(root, text="Обробка фото", command=process_image)
 button_process.pack(pady=5)
 
+#кнопка для обработки відео
 button_process = tk.Button(root, text="Обробка відео", command=process_video)
 button_process.pack(pady=5)
 
-button_download = tk.Button(root, text="Скачать фото", command=download_image)
+#кнопка для збереження фото
+button_download = tk.Button(root, text="Зберегти фото", command=download_image)
 button_download.pack(pady=5)
 
-# Создание метки для отображения выбранного изображения
 label = tk.Label(root)
 label.pack()
 
-# Глобальная переменная для хранения выбранного изображения
 selected_image = None
 processed_image = None
 video_path = None
