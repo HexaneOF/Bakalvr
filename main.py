@@ -1,6 +1,7 @@
 import os
 import tkinter as tk
 from tkinter import filedialog, Label
+import tkinter.messagebox as messagebox
 
 import numpy as np
 import cv2
@@ -15,12 +16,12 @@ detector = ObjectDetection()
 video_detector = VideoObjectDetection()
 detector.setModelTypeAsRetinaNet()
 video_detector.setModelTypeAsRetinaNet()
-detector.setModelPath(os.path.join(EXECUTION_PATH, "_internal/retinanet_resnet50_fpn_coco-eeacb38b.pth"))
-video_detector.setModelPath(os.path.join(EXECUTION_PATH, "_internal/retinanet_resnet50_fpn_coco-eeacb38b.pth"))
+detector.setModelPath(os.path.join(EXECUTION_PATH, "retinanet_resnet50_fpn_coco-eeacb38b.pth"))
+video_detector.setModelPath(os.path.join(EXECUTION_PATH, "retinanet_resnet50_fpn_coco-eeacb38b.pth"))
 detector.loadModel()
 video_detector.loadModel()
-custom_objects = detector.CustomObjects(car=True, truck=True, bus=True)
-video_custom_objects = video_detector.CustomObjects(car=True, truck=True, bus=True)
+custom_objects = detector.CustomObjects(car=True)
+video_custom_objects = video_detector.CustomObjects(car=True)
 
 
 
@@ -40,7 +41,7 @@ def process_image():
         image, detections = detector.detectObjectsFromImage(
           custom_objects=custom_objects,
           input_image=selected_image,
-          minimum_percentage_probability=30,
+          minimum_percentage_probability=55,
           display_percentage_probability=False,
           output_type='array',
         )
@@ -79,7 +80,7 @@ def process_video():
             log_progress=True,
             display_percentage_probability=False
         )
-        print("Відео оброблено")
+        messagebox.showinfo("Повідомлення", "Відео оброблено успішно!")
 
 
 root = tk.Tk()
