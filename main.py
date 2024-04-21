@@ -81,7 +81,6 @@ def process_video():
         )
 
 
-# Создание главного окна
 root = tk.Tk()
 root.minsize(200, 200)
 root.title("Робота")
